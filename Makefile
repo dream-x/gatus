@@ -1,8 +1,11 @@
 docker-build:
-	docker build -t twinproduction/gatus:latest .
+	docker build -t kinetik/gatus:latest .
+
+docker-build-linux:
+	docker buildx build --platform linux/amd64 -t kinetik/gatus:latest .
 
 docker-build-and-run:
-	docker build -t twinproduction/gatus:latest . && docker run -p 8080:8080 --name gatus twinproduction/gatus:latest
+	docker build -t kinetik/gatus:latest . && docker run -p 8080:8080 --name gatus kinetik/gatus:latest
 
 build-frontend:
 	npm --prefix web/app run build
