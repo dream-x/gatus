@@ -42,9 +42,9 @@ func (provider *AlertProvider) ToCustomAlertProvider(service *core.Service, aler
 	}
 	var text string
 	if len(alert.GetDescription()) > 0 {
-		text = fmt.Sprintf("⛑ *Gatus* \\n%s \\n*Description* \\n_%s_  \\n\\n*Condition results*\\n%s", message, alert.GetDescription(), results)
+		text = fmt.Sprintf("⛑ *Health Check* \\n%s \\n*Description* \\n_%s_  \\n\\n*Condition results*\\n%s", message, alert.GetDescription(), results)
 	} else {
-		text = fmt.Sprintf("⛑ *Gatus* \\n%s \\n*Condition results*\\n%s", message, results)
+		text = fmt.Sprintf("⛑ *Health Check* \\n%s \\n*Condition results*\\n%s", message, results)
 	}
 	return &custom.AlertProvider{
 		URL:     fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage", provider.Token),
